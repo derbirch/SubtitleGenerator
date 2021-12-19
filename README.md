@@ -5,7 +5,7 @@ Dul Subtitle Generator
 
 ✅Support subtitles that only have one language displayed.
 
-👋Please do follow the paterns below in `list.txt`.
+👋Please do follow the patterns below in `list.txt`.
 
 ```
 测试字幕
