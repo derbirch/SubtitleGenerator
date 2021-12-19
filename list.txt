@@ -1,4 +1,0 @@
-测试字幕
-DemoSubtitle
-中文难以断行，如果过长请手动修改
-English can be automatically break lines. English can be automatically break lines.

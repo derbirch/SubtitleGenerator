@@ -10,7 +10,7 @@ final float baseX = 1080;
 final float baseY = 540;
 
 // if exceed, spilt into 2 lines
-final float Width_Limit = 300;
+final float Width_Limit = 260;
 
 // Declare global var
 String[] zh;   // First Lang Subtitle
@@ -32,6 +32,7 @@ void setup() {
   background(0);
   String[] lines = loadStrings("list.txt");
   L = lines.length;
+  println(L);
   int a = 0;
   int b = 0;
   zh = new String[L/2];
@@ -71,11 +72,11 @@ void draw() {
     graphic.textAlign(CENTER);
     graphic.textFont(f1,50);
     graphic.fill(255);
-    if(textWidth(zh[w]) > Width_Limit)
+    if(textWidth(zh[w]) > 150)
     {
-      graphic.text("第一行",baseY_t,baseX_t);
+      graphic.text(" ",baseY_t,baseX_t);
       baseX_t = baseX +60;
-      graphic.text("第二行",baseY_t,baseX_t);
+      graphic.text(" ",baseY_t,baseX_t);
       println(zh[w]);
     }
     else
@@ -86,23 +87,48 @@ void draw() {
     graphic.fill(255);     // STEP 4 Specify font color
     float textWidth = textWidth(en[w]);
     //println(textWidth); 
-    if(textWidth > Width_Limit)
+    //println(zh[w]);
+    //println(zh[w].length());
+    if(zh[w].length()!=0) //Dul language lines
     {
-        String[] temp = split(en[w]," ");
-        int tempLength = temp.length;
-        //println(tempLength);
-        int splitIndex = floor(tempLength/2)+2;
-        String[] tempA = subset(temp,0,splitIndex);
-        String[] tempB = subset(temp,splitIndex,tempLength-splitIndex);
-        graphic.text(join(tempA," "),baseY_t,baseX_t + 50);
-        graphic.text(join(tempB," "),baseY_t,baseX_t + 90);   
+      if(textWidth > Width_Limit)
+      {
+          String[] temp = split(en[w]," ");
+          int tempLength = temp.length;
+          //println(tempLength);
+          int splitIndex = floor(tempLength/2)+2;
+          String[] tempA = subset(temp,0,splitIndex);
+          String[] tempB = subset(temp,splitIndex,tempLength-splitIndex);
+          graphic.text(join(tempA," "),baseY_t,baseX_t + 50);
+          graphic.text(join(tempB," "),baseY_t,baseX_t + 90);   
+      }
+      else
+      {
+        graphic.text(en[w],baseY_t,baseX_t + 50);
+        //println(en[w]);
+      }
     }
-    else
+    else //Only English Line
     {
-      graphic.text(en[w],baseY_t,baseX_t + 50);
+      if(textWidth > Width_Limit)
+      {
+          String[] temp = split(en[w]," ");
+          int tempLength = temp.length;
+          //println(tempLength);
+          int splitIndex = floor(tempLength/2)+2;
+          String[] tempA = subset(temp,0,splitIndex);
+          String[] tempB = subset(temp,splitIndex,tempLength-splitIndex);
+          graphic.text(join(tempA," "),baseY_t,baseX_t);
+          graphic.text(join(tempB," "),baseY_t,baseX_t + 40);   
+      }
+      else
+      {
+        graphic.text(en[w],baseY_t,baseX_t);
+        //println(en[w]);
+      }
     }
     graphic.endDraw();
-    graphic.save(w+".png");
+    graphic.save("./subtitle/ "+ w +".png");
     graphic.clear();
     baseX_t = baseX;
     baseY_t = baseY;
