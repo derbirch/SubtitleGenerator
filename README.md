@@ -13,8 +13,7 @@ Demo Subtile //正常显示的双语字幕 Dul lang
 测试字幕
              //只有中文 only Zh
 
-Demo Subtile
-             //只有英文 only en
+Demo Subtile //只有英文 only en
 ```
 
 
