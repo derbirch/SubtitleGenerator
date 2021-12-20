@@ -32,7 +32,6 @@ void setup() {
   background(0);
   String[] lines = loadStrings("list.txt");
   L = lines.length;
-  println(L);
   int a = 0;
   int b = 0;
   zh = new String[L/2];
