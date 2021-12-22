@@ -1,6 +1,7 @@
 //This Script is for Netease 「PowerShow」
 // Author: Ward
-
+final String filePath = "/Users/ashward/Documents/数读/脱口秀/脱口秀视频剪辑/字幕/";
+final String folderName = "Dec25";
 // Screen/Canva Size
 final int Screen_W = 1080;
 final int Screen_H = 1260;
@@ -127,7 +128,7 @@ void draw() {
       }
     }
     graphic.endDraw();
-    graphic.save("./subtitle/ "+ w +".png");
+    graphic.save(filePath + folderName + "/" + w +".png");
     graphic.clear();
     baseX_t = baseX;
     baseY_t = baseY;
