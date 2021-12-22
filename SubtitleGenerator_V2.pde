@@ -1,5 +1,7 @@
 //This Script is for Netease 「PowerShow」
 // Author: Ward
+
+// File path & Subtitle Folder Name
 final String filePath = "/Users/ashward/Documents/数读/脱口秀/脱口秀视频剪辑/字幕/";
 final String folderName = "Dec25";
 // Screen/Canva Size
